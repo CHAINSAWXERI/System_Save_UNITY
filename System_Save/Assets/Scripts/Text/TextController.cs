@@ -1,13 +1,14 @@
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class TextController : MonoBehaviour
 {
-    private int score = -1;
+    private int score;
     [SerializeField] private TextView view;
+    [SerializeField] private ScoreManager scoreManager; // —сылка на ScoreManager
 
     private void Start()
     {
+        LoadScore();
         ChangeText();
     }
 
@@ -15,5 +16,16 @@ public class TextController : MonoBehaviour
     {
         score++;
         view.UpdateText(score.ToString());
+        SaveScore();
+    }
+
+    private void SaveScore()
+    {
+        scoreManager.SaveScore(score);
+    }
+
+    private void LoadScore()
+    {
+        score = scoreManager.LoadScore();
     }
 }
