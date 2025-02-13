@@ -27,5 +27,19 @@ public class TextController : MonoBehaviour
     private void LoadScore()
     {
         score = scoreManager.LoadScore();
+        view.UpdateText(score.ToString());
+    }
+
+    public void ResetScore()
+    {
+        scoreManager.ResetScore();
+        score = 0;
+        view.UpdateText(score.ToString());
+    }
+
+    public void ShowHighScore()
+    {
+        int highScore = scoreManager.GetHighScore();
+        view.UpdateText("High Score: " + highScore.ToString());
     }
 }
