@@ -9,3 +9,13 @@ public interface IScoreManager
     void ResetScore();
     int GetHighScore();
 }
+
+/*
+public interface IScoreManager<T>
+{
+    void SaveScore(T score);
+    T LoadScore();
+    void ResetScore();
+    T GetHighScore();
+}
+*/

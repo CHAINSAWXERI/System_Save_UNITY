@@ -14,12 +14,10 @@ public class ScoreManagerJson : MonoBehaviour, IScoreManager
     {
         ScoreData data = LoadScoreData();
         data.score = score;
-
         if (score > data.highScore)
         {
             data.highScore = score;
         }
-
         string json = JsonUtility.ToJson(data);
         File.WriteAllText(filePath, json);
     }

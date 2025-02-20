@@ -37,4 +37,6 @@ public class ScoreManager : MonoBehaviour, IScoreManager
             PlayerPrefs.Save();
         }
     }
+
+    // Убедитесь, что этот метод не вызывает увеличение счёта
 }
