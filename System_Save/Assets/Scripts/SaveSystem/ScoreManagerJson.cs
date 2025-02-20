@@ -7,7 +7,6 @@ public class ScoreManagerJson : MonoBehaviour, IScoreManager
 
     private void Awake()
     {
-        // Определяем путь к файлу для сохранения данных
         filePath = Path.Combine(Application.persistentDataPath, "scoreData.json");
     }
 
@@ -16,13 +15,11 @@ public class ScoreManagerJson : MonoBehaviour, IScoreManager
         ScoreData data = LoadScoreData();
         data.score = score;
 
-        // Обновляем высокий счет
         if (score > data.highScore)
         {
             data.highScore = score;
         }
 
-        // Сохраняем данные в JSON
         string json = JsonUtility.ToJson(data);
         File.WriteAllText(filePath, json);
     }
@@ -55,7 +52,6 @@ public class ScoreManagerJson : MonoBehaviour, IScoreManager
         }
         else
         {
-            // Если файл не найден, возвращаем новый объект ScoreData
             return new ScoreData(0, 0);
         }
     }
